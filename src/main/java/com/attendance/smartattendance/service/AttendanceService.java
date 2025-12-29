@@ -5,6 +5,8 @@ import com.attendance.smartattendance.model.User;
 import com.attendance.smartattendance.repository.AttendanceRepository;
 import com.attendance.smartattendance.repository.UserRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.lang.NonNull;
+
 
 import java.time.LocalDate;
 import java.util.List;
@@ -22,7 +24,7 @@ public class AttendanceService {
     }
 
     // ✅ MARK ATTENDANCE
-    public String markAttendance(Integer userId) {
+    public String markAttendance(@NonNull Integer userId) {
 
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
